@@ -1,11 +1,28 @@
 .App {
   text-align: center;
+  
 }
-
+body{
+  background-color: #667302;
+  padding: 0%;
+}
+.Nav{
+  background-color: #733702;
+  color: #261901;
+  
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+.container{
+  margin:0%
+}
+svg{
+  width: 30px;
+  
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
