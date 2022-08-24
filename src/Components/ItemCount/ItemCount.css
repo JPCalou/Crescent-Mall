@@ -1,0 +1,32 @@
+.cantidadProd{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 13rem;
+    height: 5rem;
+    align-items: baseline;
+    justify-content: space-around;
+}
+
+.btnSuma{
+    border-radius: 1rem;
+    margin: 1rem;
+}
+
+#btnRestar{
+    width: 27px;
+}
+.btnAgregar{
+    border-radius: 20px;
+}
+.contador{
+    margin-left: 5px;
+    width: 38px;
+    margin-right: 5px;
+    background-color: white;
+    padding: 3px;
+    font-size: 17px;
+    border: black;
+    border-style: groove;
+    border-radius: 37px;
+}
