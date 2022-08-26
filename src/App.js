@@ -1,42 +1,33 @@
-
-import './App.css';
-import NavBar from './Components/NavBar/NavBar.js';
-import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
-import { ItemCount } from './Components/ItemCount/ItemCount';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import "./App.css";
+import NavBar from "./Components/NavBar/NavBar.js";
+import { ItemListContainer } from "./Components/ItemListContainer/ItemListContainer";
+import { ItemCount } from "./Components/ItemCount/ItemCount";
+import Swal from "sweetalert2";
 
 function App() {
+  const onAdd = (contador) => {
+    Swal.fire({
+      title: "Agregado",
+      text: "Usted ha agregado " + contador + " productos al carrito",
+      imageUrl: "https://unsplash.it/400/200",
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: "Custom image",
+    });
 
-  const onAdd = (contador)=>{
-
-    toast.info('🦄 Wow so easy!', {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        });
-
-      alert("Haz agregado "+contador+" productos!")
-
-}
+    // alert("Haz agregado "+contador+" productos!")
+  };
 
   return (
-     
-      
     <div className="App">
-            
-        <NavBar/>
-        <ItemListContainer titulo="Crescent" slogan="Bienestar en tu hogar"/>
-        <ItemCount stock={10} initial={1} agregarProducto={onAdd} />
-        
-        
-          
+      <header>
+        <NavBar />
+      </header>
+
+      <ItemListContainer />
+
+      <ItemCount stock={10} initial={1} agregarProducto={onAdd} />
     </div>
-    
   );
 }
 

@@ -5,6 +5,7 @@ import React from 'react';
 
 
 
+
 export const ItemCount = ({stock, initial, agregarProducto})=>{
 const [contador, setContador ] = useState(initial);
 
