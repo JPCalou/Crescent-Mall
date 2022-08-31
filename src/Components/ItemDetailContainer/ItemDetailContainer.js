@@ -1,48 +1,42 @@
-import { ItemDetail } from "./ItemDetail";
-import { useState,useEffect } from "react";
-import { velas } from "../Productos/Velas";
+import { useEffect, useState } from "react"
+import { getVelas } from "../Productos/Velas"
+import {ItemDetail} from './ItemDetail'
+import "./ItemDetail.css";
 
 
-export const ItemDetailContainer= ()=>{
-    const [detalle, setDetalle] = useState()
+export const ItemDetailContainer = ()=>{
+const [detalle,setDetalle]= useState({})
 
-  
-
-    useEffect(() => {
-
-        const obtenerVelas = () => {
-            return new Promise((resolve, reject) => {
-              setTimeout(() => {
-                resolve(velas.find(producto => producto.ID === '1'));
-              }, 2000);
-              
-            });
-          };
-          setDetalle(obtenerVelas)
-        // const detalleAsync = async () => {
-        //   try {
-        //     const data = await obtenerVelas();
-        //     setDetalle(data);
-        //   } catch (error) {
-        //     console.log("ha ocurrido un error");
-        //   }
-        // };
-        // detalleAsync();
-      },[]);
-
-    
-
-    
-    return(
-        <div>
-            <ItemDetail detalle={detalle} />
-        </div>
-       
-          
-        
-       
-    )
-
+useEffect(()=>{
+    setTimeout(()=>{
+        getVelas.then(response=>{
+            setDetalle(response.find(producto=>producto.ID==="1"))
+        })
+    },3000)
    
+    
+        // const promesa = new Promise((resolve, reject) => {
+        //     setTimeout(()=>{
+        //         resolve(velas.find(producto=>producto.ID=== "1"))
+        //         setDetalle(promesa)
+        //     },1000)
+    
+        //    })
+       
+},[])
+
+// const obtenerProducto = ()=>{
+    
+// }
+
+return(
+    // console.log("funciona",detalle)
+    <div className="ItemDetailContainer">
+<ItemDetail detalle={detalle}/>
+    </div>
+    
+
+)
 
 }
+

@@ -8,7 +8,8 @@ import velasMedianas from '../Imagenes/velasMedianas.jpg';
     fragancia: "Coco y limon",
     imagen: velasPequeñas,
     tamaño: "Pequeña",
-    precio: "350"
+    precio: "350",
+    descripcion: "Velas de soja artesanales de 6cm, la combinacion del aroma a coco con el citrico del limon resulta ideal para llenar el ambiente con una escencia natural"
   },
   {
     ID: "2",
@@ -46,3 +47,10 @@ import velasMedianas from '../Imagenes/velasMedianas.jpg';
     precio: "350"
   },
 ]
+
+export const getVelas = new Promise((resolve, reject) => {
+  setTimeout(()=>{
+    resolve(velas)
+    reject(error=>console.log("No se puedieron cargar las velas"))
+  },2000 )
+})
