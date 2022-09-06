@@ -1,7 +1,7 @@
 import "./ItemDetail.css";
 
 export const ItemDetail = ({ detalle }) => {
-
+  
     
   return (
     <div className="detailCard">

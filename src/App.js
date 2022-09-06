@@ -4,6 +4,8 @@ import { ItemListContainer } from "./Components/ItemListContainer/ItemListContai
 import { ItemList } from "./Components/ItemListContainer/ItemList";
 // import {ItemDetailContainer} from './Components/ItemDetailContainer/ItemDetailContainer'
 import {BrowserRouter,Route,Routes} from 'react-router-dom'
+
+import { ItemDetailContainer } from "./Components/ItemDetailContainer/ItemDetailContainer";
 function App() {
   
 
@@ -18,6 +20,8 @@ function App() {
             <Route path="/" element={<ItemListContainer />}/>
             <Route path="/contacto" element={<ItemListContainer />}/>
             <Route path="/category/:IdCategory" element={<ItemList />}/>
+            <Route path="/detail/:IdDetail" element={<ItemDetailContainer />}/>
+
           </Routes>
         </header>
 

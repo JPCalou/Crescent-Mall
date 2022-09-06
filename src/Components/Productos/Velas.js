@@ -8,7 +8,7 @@ import perfumeAmbiente from '../Imagenes/perfumeAmbiente.jpeg';
  export const velas =[
   {
     ID: "1",
-    tipo: "Vela",
+    tipo: 'Vela',
     fragancia: "Coco y limon",
     imagen: velasPequeñas,
     tamaño: "Pequeña",
