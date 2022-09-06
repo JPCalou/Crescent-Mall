@@ -1,8 +1,6 @@
 import "./ItemDetail.css";
 
 export const ItemDetail = ({ detalle }) => {
-  
-    
   return (
     <div className="detailCard">
       <div className="divImg">
@@ -14,10 +12,6 @@ export const ItemDetail = ({ detalle }) => {
         <p>Precio: ${detalle.precio}</p>
         <p>{detalle.descripcion}</p>
       </div>
-
-      {/* <ItemCount stock={10} initial={1} agregarProducto={onAdd} /> */}
     </div>
-
-    // console.log("funciona", detalle)
   );
 };

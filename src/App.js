@@ -25,8 +25,7 @@ function App() {
           </Routes>
         </header>
 
-        {/* <ItemListContainer /> */}
-        {/* <ItemDetailContainer/> */}
+        
       </div>
     </BrowserRouter>
   );
