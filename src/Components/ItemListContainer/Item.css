@@ -1,12 +1,11 @@
 .Item {
-
-    height: 17rem;
+height: 17rem;
     border: beige;
     justify-content: center;
-    margin: 10px;
-
+    margin: 21px;
     border-radius: 20px;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .ItemCard:hover{
@@ -26,7 +25,7 @@ transform: translateY(-3%);
     background-color: #384001;
     border-radius: 20px;
     color: aliceblue;
-    margin: 15px;
+    margin: 65px;
      box-shadow: 0px 1px 10px rgba(0,0,0,2);
      transition: all 400ms ease;
     cursor: pointer;

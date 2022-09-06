@@ -1,40 +1,31 @@
 import './Item.css'
 import { Item } from "./Item";
 import React,{useEffect,useState} from "react";
-import { getVelas } from '../Productos/Velas';
+import { getProductos } from '../Productos/Velas';
+import {useParams} from 'react-router-dom'
 
 
 
 export const ItemList = ({producto}) => {
    
   const [velasAromaticas, setVelasAromaticas] = useState([]);
+  const {IdCategory} = useParams();
+  console.log('IdCategory',IdCategory)
+  
 
   useEffect(() => {
-    getVelas.then(velas=>{
-      setVelasAromaticas(velas)
-    })
-    // const velasAsinc = async () => {
-    //   try {
-    //     const listado = await obtenerVelas();
-    //     setVelasAromaticas(listado);
-    //   } catch (error) {
-    //     console.log("ha ocurrido un error");
-    //   }
-    // };
-    // velasAsinc();
-  },[]);
-
-  // const obtenerVelas = () => {
-  //   return new Promise((resolve, reject) => {
-  //     setTimeout(() => {
-  //       resolve(velas);
-  //     }, 2000);
-  //   });
-  // };
    
-  
- 
+    getProductos.then(velas=>{
 
+      const productosFiltrados = velas.filter(item =>item.tipo === IdCategory);
+      console.log('productosFiltrados',productosFiltrados)
+
+      setVelasAromaticas(velas)
+      // console.log("velas", velasAromaticas)
+      
+    })
+   
+  },[IdCategory]);
   return (
     <div className='ItemList'>
         <h1 className='tituloItemList'>Velas</h1>
@@ -48,7 +39,6 @@ export const ItemList = ({producto}) => {
             })
         }
       </div>
-        {/* <img src={Velas} alt='Velas Presentacion' className = 'imgLanding'></img> */}
     </div>
   )
 }

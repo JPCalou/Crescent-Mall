@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getVelas } from "../Productos/Velas"
+import { getProductos } from "../Productos/Velas"
 import {ItemDetail} from './ItemDetail'
 import "./ItemDetail.css";
 
@@ -9,7 +9,7 @@ const [detalle,setDetalle]= useState({})
 
 useEffect(()=>{
     setTimeout(()=>{
-        getVelas.then(response=>{
+        getProductos.then(response=>{
             setDetalle(response.find(producto=>producto.ID==="1"))
         })
     },3000)

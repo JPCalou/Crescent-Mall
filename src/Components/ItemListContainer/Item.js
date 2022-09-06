@@ -18,7 +18,7 @@ export const Item = ({ vela }) => {
   return (
     <div className="ItemCard">
       <img className="imgVelas" src={vela.imagen} alt="velas pequeñas" />
-      <p>Fragancia: {vela.fragancia}</p>
+      <p>{vela.tipo}</p>
       <p>Tamaño: {vela.tamaño}</p>
       <p>Precio: ${vela.precio}</p>
       {/* <ItemCount stock={10} initial={1} agregarProducto={onAdd} /> */}
