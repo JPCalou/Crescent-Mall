@@ -2,19 +2,10 @@ import React from "react";
 import "./Item.css";
 import { Link } from "react-router-dom";
 
-// import Swal from "sweetalert2";
+
 
 export const Item = ({ vela }) => {
-  // const onAdd = (contador) => {
-  //   Swal.fire({
-  //     title: "Agregado",
-  //     text: "Usted ha agregado " + contador + " productos al carrito",
-  //     imageUrl: "https://unsplash.it/400/200",
-  //     imageWidth: 400,
-  //     imageHeight: 200,
-  //     imageAlt: "Custom image",
-  //   }); // alert("Haz agregado "+contador+" productos!")
-  // };
+
 
   return (
     <div className="ItemCard">

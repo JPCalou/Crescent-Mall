@@ -17,7 +17,7 @@ export const ItemDetailContainer = () => {
         );
       });
     }, 3000);
-  }, []);
+  }, [params.IdDetail]);
 
   return (
     <div className="ItemDetailContainer">
