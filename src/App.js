@@ -1,18 +1,18 @@
 import "./App.css";
 import NavBar from "./Components/NavBar/NavBar.js";
 import { ItemListContainer } from "./Components/ItemListContainer/ItemListContainer";
-import { ItemList } from "./Components/ItemListContainer/ItemList";
-// import {ItemDetailContainer} from './Components/ItemDetailContainer/ItemDetailContainer'
 import {BrowserRouter,Route,Routes} from 'react-router-dom'
-
 import { ItemDetailContainer } from "./Components/ItemDetailContainer/ItemDetailContainer";
-import { ItemDetail } from "./Components/ItemDetailContainer/ItemDetail";
+import {CartProvider} from './Components/Contextos/CartContext'
+import { CartContainer } from "./Components/CartContainer/CartContainer";
+
 function App() {
   
 
  
 
   return (
+    <CartProvider>
     <BrowserRouter>
       <div className="App">
         <header>
@@ -20,9 +20,9 @@ function App() {
           <Routes>
             <Route path="/" element={<ItemListContainer />}/>
             <Route path="/contacto" element={<ItemListContainer />}/>
-            <Route path="/category/:IdCategory" element={<ItemList />}/>
+            <Route path="/category/:IdCategory" element={<ItemListContainer />}/>
             <Route path="/detail/:IdDetail" element={<ItemDetailContainer />}/>
-            <Route path="/cart" element={<h1>Carrito Crack</h1>}/>
+            <Route path="/cart" element={<CartContainer/>}/>
 
           </Routes>
         </header>
@@ -30,6 +30,7 @@ function App() {
         
       </div>
     </BrowserRouter>
+    </CartProvider>
   );
 }
 

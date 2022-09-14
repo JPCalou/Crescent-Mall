@@ -1,0 +1,22 @@
+.carrito{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carritoCard{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+    padding: 5px;
+    background: white;
+    border-radius: 14px;
+    width: 60%;
+}
+
+img{
+    width: 142px;
+    height: 142px;
+    border-radius: 15px;
+}
