@@ -1,71 +1,86 @@
-import { createContext } from "react";
 
+import { createContext } from "react";
 import { useState } from "react";
 
 export const CartContext = createContext();
 
+export const CartProvider = ({ children }) => {
+    const [listaCarrito, setListaCarrito] = useState([]);
+    const [cantidadProducto, setCantidadProducto] = useState(0);
+    const [precioTotal, setPrecioTotal]= useState(0)
+    //   console.log("listacarrito", listaCarrito);
+    // AGREGAR PRODUCTO AL ARRAY ListaCarrito
 
-export const CartProvider = ({children})=>{
-
-  const[listaCarrito,setListaCarrito]= useState([]);
-  console.log("listacarrito", listaCarrito)
-    
-    // const addProducto = (producto, quantity) => {
-      
-    //   const nuevoProducto = {...producto, quantity }
-    //   setListaCarrito([...listaCarrito,nuevoProducto])
-      
-    // };
-      
-
-
-    const addProducto = (producto, quantity) =>{
-       
+    const addProducto = (producto, quantity) => {
         const newLista = [...listaCarrito];
-        if(isInCart(producto.ID)){
-            const productIndex = listaCarrito.findIndex(element =>element.ID === producto.ID);
-            newLista[productIndex].quantity = newLista[productIndex].quantity + quantity;
-            console.log(newLista)
-            setListaCarrito(newLista)
-        }else{
-            const nuevoProducto = {...producto,quantity:quantity}
-            const newLista = [...listaCarrito, nuevoProducto]
-            setListaCarrito(newLista)
-            
+        //ME FIJO SI YA SE ENCUENTRA EN EL CARRITO
+        if (isInCart(producto.ID)) {
+            const productIndex = listaCarrito.findIndex(
+                (element) => element.ID === producto.ID
+            );
+            newLista[productIndex].quantity =
+                newLista[productIndex].quantity + quantity;
+            // console.log(newLista);
+            setListaCarrito(newLista);
+            cantidadProductoTotal(newLista);
+            precioTotalProductos(newLista)
+            //SI NO ESTA LO AGREGO
+        } else {
+            const nuevoProducto = { ...producto, quantity: quantity };
+            const newLista = [...listaCarrito, nuevoProducto];
+            setListaCarrito(newLista);
+            cantidadProductoTotal(newLista);
+            precioTotalProductos(newLista)
         }
         // console.log("listacarrito", listaCarrito)
-    }
-   
-       
+    };
+
+    const cantidadProductoTotal = (newLista) => {
+        const newCantidad = newLista.reduce((acc, curr) => acc + curr.quantity, 0);
+        setCantidadProducto(newCantidad);
+    };
+
+    const precioTotalProductos = (listaCarrito) => {
+    //   const newPrecio = newLista.reduce((acc, curr) => acc + curr.precio, 0);
+    //   setPrecioTotal(newPrecio);
+    const cantidadTotal = listaCarrito.map(item=>parseInt(item.precio) * item.quantity)
+    const precioFinal = cantidadTotal.reduce((a,b)=>a+b)
+    setPrecioTotal(precioFinal)
+  
     
+    };
 
-    const isInCart = (IdProducto)=>{
-        const exist = listaCarrito.some((item)=>item.ID ===IdProducto)
-        return exist
-        
-     
-         }
-        
-    
+    const isInCart = (IdProducto) => {
+        const exist = listaCarrito.some((item) => item.ID === IdProducto);
+        return exist;
+    };
 
-    const removeProducto= (IdProducto)=>{
-        
-       const nuevoCarrito = listaCarrito.filter((item)=>item.ID !== IdProducto)
-       setListaCarrito(nuevoCarrito)
+    const removeProducto = (IdProducto) => {
+        const nuevoCarrito = listaCarrito.filter((item) => item.ID !== IdProducto);
+        setListaCarrito(nuevoCarrito);
+        cantidadProductoTotal(nuevoCarrito);
+        precioTotalProductos(nuevoCarrito)
+    };
 
-    }
+    const clearCarrito = () => {
+        const carritoVacio = []
+        setListaCarrito(carritoVacio);
+        cantidadProductoTotal(carritoVacio);
+        precioTotalProductos(carritoVacio)
+    };
 
-    const clearCarrito = ()=>{
-        
-        setListaCarrito([])
-    }
-
-
-
-    return(
-       <CartContext.Provider  value={{listaCarrito,isInCart, addProducto, removeProducto, clearCarrito}}>
-        {children}
-       </CartContext.Provider>
-    )
-}
-
+    return (
+        <CartContext.Provider
+            value={{
+                cantidadProducto,precioTotal,
+                listaCarrito,
+                isInCart,
+                addProducto,
+                removeProducto,
+                clearCarrito,
+            }}
+        >
+            {children}
+        </CartContext.Provider>
+    );
+};
