@@ -4,16 +4,17 @@ import { Link } from "react-router-dom";
 
 
 
-export const Item = ({ vela }) => {
+export const Item = ({ productos }) => {
+  
 
 
   return (
     <div className="ItemCard">
-      <img className="imgVelas" src={vela.imagen} alt="velas pequeñas" />
-      <p>{vela.tipo}</p>
-      <p>Tamaño: {vela.tamaño}</p>
-      <p>Precio: ${vela.precio}</p>
-      <Link className="ItemLink" to={`/detail/${vela.ID}`}>
+      <img className="imgVelas" src={productos.imagen} alt="velas pequeñas" />
+      <p>{productos.tipo}</p>
+      <p>Tamaño: {productos.tamaño}</p>
+      <p>Precio: ${productos.precio}</p>
+      <Link className="ItemLink" to={`/detail/${productos.id}`}>
         <button className="btnDetalle">Ver detalle</button>
       </Link>
     </div>
