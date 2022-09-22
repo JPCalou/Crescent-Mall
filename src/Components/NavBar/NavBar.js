@@ -26,9 +26,9 @@ function NavBar() {
           <LinkBoostrap to={'/'}><Nav.Link >Crescent Market</Nav.Link></LinkBoostrap>
           <LinkBoostrap to={'/contacto'}><Nav.Link >Contacto</Nav.Link></LinkBoostrap>
             <NavDropdown title="Productos" id="basic-nav-dropdown">
-              <LinkBoostrap to={'/category/Vela'}><NavDropdown.Item href="#2">Velas</NavDropdown.Item></LinkBoostrap>
-             <LinkBoostrap to={'/category/Difusor'}> <NavDropdown.Item href="#3">Difusores</NavDropdown.Item></LinkBoostrap>
-              <LinkBoostrap to={'/category/Aromatizador'}><NavDropdown.Item href="#4">Aromatizadores</NavDropdown.Item></LinkBoostrap>
+              <NavDropdown.Item href="#1"><LinkBoostrap to={'/category/Vela'}>Velas</LinkBoostrap></NavDropdown.Item>
+             <NavDropdown.Item href="#2"><LinkBoostrap to={'/category/Difusor'}> Difusores</LinkBoostrap></NavDropdown.Item>
+              <NavDropdown.Item href="#3"><LinkBoostrap to={'/category/Aromatizador'}>Aromatizadores</LinkBoostrap></NavDropdown.Item>
               <NavDropdown.Divider />
               {/* <NavDropdown.Item href="#action/3.4">Mas info ...</NavDropdown.Item> */}
             </NavDropdown>

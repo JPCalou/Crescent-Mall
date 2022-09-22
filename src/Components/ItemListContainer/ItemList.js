@@ -9,7 +9,7 @@ export const ItemList = ({ velasAromaticas}) => {
       <h1 className="tituloItemList">Productos</h1>
       <div className="Item">
         {velasAromaticas.map((velas) => {
-          return <Item className="card" productos={velas} key={velas.ID} />;
+          return <Item className="card" productos={velas} key={velas.id} />;
         })}
       </div>
     </div>

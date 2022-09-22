@@ -14,9 +14,9 @@ export const CartProvider = ({ children }) => {
     const addProducto = (producto, quantity) => {
         const newLista = [...listaCarrito];
         //ME FIJO SI YA SE ENCUENTRA EN EL CARRITO
-        if (isInCart(producto.ID)) {
+        if (isInCart(producto.id)) {
             const productIndex = listaCarrito.findIndex(
-                (element) => element.ID === producto.ID
+                (element) => element.id === producto.id
             );
             newLista[productIndex].quantity =
                 newLista[productIndex].quantity + quantity;
@@ -41,22 +41,18 @@ export const CartProvider = ({ children }) => {
     };
 
     const precioTotalProductos = (listaCarrito) => {
-    //   const newPrecio = newLista.reduce((acc, curr) => acc + curr.precio, 0);
-    //   setPrecioTotal(newPrecio);
     const cantidadTotal = listaCarrito.map(item=>parseInt(item.precio) * item.quantity)
     const precioFinal = cantidadTotal.reduce((a,b)=>a+b)
-    setPrecioTotal(precioFinal)
-  
-    
+    setPrecioTotal(precioFinal)       
     };
 
     const isInCart = (IdProducto) => {
-        const exist = listaCarrito.some((item) => item.ID === IdProducto);
+        const exist = listaCarrito.some((item) => item.id === IdProducto);
         return exist;
     };
 
     const removeProducto = (IdProducto) => {
-        const nuevoCarrito = listaCarrito.filter((item) => item.ID !== IdProducto);
+        const nuevoCarrito = listaCarrito.filter((item) => item.id !== IdProducto);
         setListaCarrito(nuevoCarrito);
         cantidadProductoTotal(nuevoCarrito);
         precioTotalProductos(nuevoCarrito)
