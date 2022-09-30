@@ -1,5 +1,5 @@
 import "./App.css";
-import NavBar from "./Components/NavBar/NavBar.js";
+import NavBar2 from "./Components/NavBar/NavBar2.js";
 import { ItemListContainer } from "./Components/ItemListContainer/ItemListContainer";
 import {BrowserRouter,Route,Routes} from 'react-router-dom'
 import { ItemDetailContainer } from "./Components/ItemDetailContainer/ItemDetailContainer";
@@ -16,7 +16,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <header>
-          <NavBar />
+          <NavBar2 />
           <Routes>
             <Route path="/" element={<ItemListContainer />}/>
             <Route path="/contacto" element={<ItemListContainer />}/>

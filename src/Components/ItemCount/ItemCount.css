@@ -1,7 +1,7 @@
 .cantidadProd{
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    text-align: center;
     width: 13rem;
     height: 5rem;
     align-items: baseline;

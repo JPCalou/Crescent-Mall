@@ -1,6 +1,11 @@
 .cart{
     height: 40px;
     width: 40px;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     display: inline;
+}
+
+sup{
+    display: flex;
+    align-items: center;
 }

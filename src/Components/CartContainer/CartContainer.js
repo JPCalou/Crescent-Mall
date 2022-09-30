@@ -1,102 +1,147 @@
-import React, { useState } from 'react'
-import { useContext } from 'react'
-import { CartContext } from '../Contextos/CartContext';
-import './CartContainer.css';
-import {Link} from 'react-router-dom';
-import dataBase from '../../utils/firebase';
-import { collection,addDoc } from 'firebase/firestore';
-
+import React, { useState } from "react";
+import { useContext } from "react";
+import { CartContext } from "../Contextos/CartContext";
+import "./CartContainer.css";
+import { Link } from "react-router-dom";
+import dataBase from "../../utils/firebase";
+import { collection, addDoc } from "firebase/firestore";
+import { Formulario } from "../Formulario/Formulario";
+import { DetalleDeCompra } from "../Modal/Modal";
 
 export const CartContainer = () => {
-  const { listaCarrito,precioTotal,removeProducto,clearCarrito } = useContext(CartContext);
- const [ordenId, setOrdenId]= useState("")
- const fecha= new Date();
-const diasSemana = ['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado']
-const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']
-const fechaActualizada = `${diasSemana[fecha.getDay()]} ${fecha.getDate()} de ${meses[fecha.getMonth()]} de ${fecha.getFullYear()} a las hs ${fecha.getHours()}:${fecha.getMinutes()}`
+  const { listaCarrito, precioTotal, removeProducto, clearCarrito } =
+    useContext(CartContext);
+  const [ordenId, setOrdenId] = useState("");
+  const [show, setShow] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
+  const [errorCarrito, setErrorCarrito] = useState(false);
 
-// console.log(`${diasSemana[fecha.getDay()]} ${fecha.getDate()} de ${meses[fecha.getMonth()]} de ${fecha.getFullYear()} a las hs ${fecha.getHours()}:${fecha.getMinutes()}`)
+  const handleClose = () =>{
+    setShow(false);
+    clearCarrito()
+  } 
+  
 
-  const sendOrder= (e)=>{
+  const fecha = new Date();
+
+  const diasSemana = [
+    "Domingo",
+    "Lunes",
+    "Martes",
+    "Miercoles",
+    "Jueves",
+    "Viernes",
+    "Sabado",
+  ];
+  const meses = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ];
+  const fechaActualizada = `${
+    diasSemana[fecha.getDay()]
+  } ${fecha.getDate()} de ${
+    meses[fecha.getMonth()]
+  } de ${fecha.getFullYear()} a las hs ${fecha.getHours()}:${fecha.getMinutes()}`;
+
+  const sendOrder = (e) => {
     e.preventDefault();
     const orden = {
-      buyer : {name:e.target[0].value, phone:e.target[1].value , email: e.target[2].value},
-      items:listaCarrito,
+      buyer: {
+        name: e.target[0].value,
+        phone: e.target[1].value,
+        email: e.target[2].value,
+      },
+      items: listaCarrito,
       fecha: fechaActualizada,
-      Total: precioTotal
+      Total: precioTotal,
+    };
+    if (
+      orden.buyer.name !== "" &&
+      orden.buyer.phone !== "" &&
+      orden.buyer.email !== ""
+    ) {
+      const queryRef = collection(dataBase, "ordenes");
+      console.log(queryRef, orden);
+      addDoc(queryRef, orden).then((response) => {
+        e.target[0].value = "";
+        e.target[1].value = "";
+        e.target[2].value = "";
+        
+        setOrdenId(response.id);
+        setShow(true);
+        setSubmitError(false);
+        setErrorCarrito(false);
+      });
+    } else if (listaCarrito.length === 0) {
+      setErrorCarrito(true);
+    } else {
+      setSubmitError(true);
     }
-    const queryRef = collection(dataBase, "ordenes");
-    addDoc(queryRef, orden).then(response=>setOrdenId(response.id))
-    console.log(ordenId)
-
- 
-
-    console.log(orden)
-  }
-
-  // const detallesDeCompra= ()=>{
-  //   debugger
-  //   return(
-     
-  //   )
-  // }
-
-
- 
-  
-
-  
+  };
 
   return (
-
     <div className="carrito">
+      {listaCarrito.length === 0 ? (
+        <Link className="text-decoration-none" to={"/"}>
+          <h3>Agrega un producto</h3>
+        </Link>
+      ) : (
+        listaCarrito.map((item) => (
+          <>
+            <div key={item.id} className="carritoCard">
+              <img
+                className="img-producto"
+                src={item.imagen}
+                alt="imagen"
+              ></img>
+              <p>{item.quantity}</p>
+              <p>${item.precio * item.quantity}</p>
+              <button className="btnEliminar" onClick={() => {removeProducto(item.id);}}>{" "}Eliminar
+              </button>
+            </div>
+          </>
+        ))
+      )}
 
+      {listaCarrito.length > 0 ? (
+        <>
+          <p>Precio Total: ${precioTotal}</p>
+          <button onClick={clearCarrito}>Vaciar Carrito</button>
+        </>
+      ) : (
+        <p></p>
+      )}
 
-      {listaCarrito.length ===0?<Link className='text-decoration-none' to={'/'}><h3 >Agrega un producto</h3></Link>:
-       listaCarrito.map((item) => (
-        <div key={item.id} className="carritoCard">
-          <img src={item.imagen} alt="imagen"></img>
-          <p>{item.quantity}</p>
-          <p>${item.precio * item.quantity}</p>
-          <button
-            onClick={() => {
-              removeProducto(item.id);
-              
-            }}
-          >
-            X
-          </button>
-        </div>
-      )) }
-      <p>Precio Total: ${precioTotal}</p>
-      <button onClick={clearCarrito}>Vaciar Carrito</button>
+      {errorCarrito && <p className="errorCarrito">El carrito esta vacio</p>}
       <hr></hr>
       <h2>Completa el formulario para finalizar la compra</h2>
       <hr></hr>
 
-      <form onSubmit={sendOrder}>
-        <input type="text" placeholder='Nombre'></input>
-        <input type= "number" placeholder='Telefono'></input>
-        <input type = "email" placeholder='Email'></input>
-        <button type= "submit" >Comprar</button>
-      </form>
-      <hr></hr>
-      <h4>Detalle de Compra</h4>
-      <p>Puedes retirar tu compra con los siguientes datos:</p>
-      <table>
-        <tr>
-          <td>Fecha</td>
-          <td>{fechaActualizada}</td>
-        </tr>
-        <tr>
-          <td>Importe</td>
-          <td>${precioTotal}</td>
-          </tr>
-        <tr>
-          <td>Nro de orden</td>
-          <td>{ordenId}</td>
-          </tr>
-      </table>
+      <Formulario orden={(e) => sendOrder(e)} />
+      {submitError && (
+        <p className="errorForm">Por favor complete el formulario</p>
+      )}
+
+      {show && (
+        <DetalleDeCompra
+          close={handleClose}
+          open={show}
+          orderId={ordenId}
+          fechaActualizada={fechaActualizada}
+          precioTotal={precioTotal}
+          
+        />
+      )}
     </div>
   );
 };

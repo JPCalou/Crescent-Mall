@@ -3,14 +3,14 @@
   
 }
 body{
-  background-color: #667302;
+  background-color: #fafab6;
   padding: 0%;
 }
-.Nav{
+/* .Nav{
   background-color: #733702;
   color: #261901;
   
-}
+} */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -21,6 +21,10 @@ body{
 svg{
   width: 30px;
   
+}
+
+button{
+  border-radius: 10px;
 }
 
 

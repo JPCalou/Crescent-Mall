@@ -6,6 +6,7 @@
 .detailCard{
     display: flex;
     margin: 10px;
+    background-color: #8f975d;
     padding: 5px;
     width: 40rem;
     justify-content: space-evenly;
@@ -30,5 +31,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: justify;
     width: 16rem;
 }

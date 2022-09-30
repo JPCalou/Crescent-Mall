@@ -1,17 +1,13 @@
 .Item {
-height: 17rem;
     border: beige;
     justify-content: center;
-    margin: 21px;
+    margin: 0px;
     border-radius: 20px;
     display: flex;
     flex-wrap: wrap;
 }
 
-.ItemCard:hover{
-box-shadow: 5px 5px 20px rgba(0,0,0,4);
-transform: translateY(-3%);
-}
+
 .imgLanding{
     width: 15rem;
     height: 20rem;
@@ -20,21 +16,32 @@ transform: translateY(-3%);
     margin: 20px;
 }
 .ItemCard{
-    width: 13rem;
+    width: 19rem;
     text-decoration: none;
-    background-color: #384001;
+    background-color: #8f975d;
     border-radius: 20px;
-    color: aliceblue;
-    margin: 65px;
+    color: #423712;
+    margin: 35px;
      box-shadow: 0px 1px 10px rgba(0,0,0,2);
      transition: all 400ms ease;
     cursor: pointer;
 }
+
+.ItemCard p {
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+.ItemCard:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,4);
+    transform: translateY(-3%);
+    }
+
 .imgVelas{
-    height: 10rem;
-    width: 12rem;
+    height: 17rem;
+    width: 16rem;
     padding: 10px;
-    border-radius: 120px;
+    border-radius: 29px;
 }
 .ItemList{
     display: flex;

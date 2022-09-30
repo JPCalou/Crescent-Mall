@@ -8,23 +8,22 @@ export const CartProvider = ({ children }) => {
     const [listaCarrito, setListaCarrito] = useState([]);
     const [cantidadProducto, setCantidadProducto] = useState(0);
     const [precioTotal, setPrecioTotal]= useState(0)
-    //   console.log("listacarrito", listaCarrito);
-    // AGREGAR PRODUCTO AL ARRAY ListaCarrito
+  
 
     const addProducto = (producto, quantity) => {
         const newLista = [...listaCarrito];
-        //ME FIJO SI YA SE ENCUENTRA EN EL CARRITO
+        
         if (isInCart(producto.id)) {
             const productIndex = listaCarrito.findIndex(
                 (element) => element.id === producto.id
             );
             newLista[productIndex].quantity =
                 newLista[productIndex].quantity + quantity;
-            // console.log(newLista);
+         
             setListaCarrito(newLista);
             cantidadProductoTotal(newLista);
             precioTotalProductos(newLista)
-            //SI NO ESTA LO AGREGO
+          
         } else {
             const nuevoProducto = { ...producto, quantity: quantity };
             const newLista = [...listaCarrito, nuevoProducto];
@@ -41,9 +40,16 @@ export const CartProvider = ({ children }) => {
     };
 
     const precioTotalProductos = (listaCarrito) => {
-    const cantidadTotal = listaCarrito.map(item=>parseInt(item.precio) * item.quantity)
-    const precioFinal = cantidadTotal.reduce((a,b)=>a+b)
-    setPrecioTotal(precioFinal)       
+        if(listaCarrito === []){
+            debugger
+            setPrecioTotal(0)
+        }else{
+            const cantidadTotal = listaCarrito.map(item=>parseInt(item.precio) * item.quantity)
+            const precioFinal = cantidadTotal.reduce((a,b)=>a+b)
+            setPrecioTotal(precioFinal)
+          
+        }
+    
     };
 
     const isInCart = (IdProducto) => {
@@ -59,10 +65,10 @@ export const CartProvider = ({ children }) => {
     };
 
     const clearCarrito = () => {
-        const carritoVacio = []
+        const carritoVacio =[]
         setListaCarrito(carritoVacio);
-        cantidadProductoTotal(carritoVacio);
-        precioTotalProductos(carritoVacio)
+        setCantidadProducto(0)
+        setPrecioTotal(0)
     };
 
     return (

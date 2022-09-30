@@ -3,6 +3,7 @@ import { Item } from "./Item";
 
 
 export const ItemList = ({ velasAromaticas}) => {
+  
 
   return (
     <div className="ItemList">
