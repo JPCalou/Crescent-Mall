@@ -5,7 +5,7 @@
 Mi proyecto simula una tienda de productos de aromaterapia, se canaliza basicamente en tres tipos de productos: Velas aromaticas las cuales varian su precio segun el tamaño; Aromatizadores (perfumes de ambiente y ropa) que son atomizadores que contienen las fragancias y tambien varian de precio segun su tamaño; y Difusores que consisten en pequeños frascos que contienen una fragancia concentrada y llevan un conjunto de varillas de madera la cual absorve la fragancia y discipa el aroma de manera constante.
 
 # Gif de Navegacion
-![image](https://github.com/JPCalou/Crescent-Mall/blob/main/src/Components/Imagenes/crescent%20gif.gif)
+![image](https://github.com/JPCalou/Crescent-Mall/blob/main/src/Components/Imagenes/GifNavegacionFinal.gif)
 
 # Dependencias
 ###  install react-bootstrap bootstrap
