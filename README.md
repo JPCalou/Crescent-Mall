@@ -8,15 +8,15 @@ Mi proyecto simula una tienda de productos de aromaterapia, se canaliza basicame
 ![image](https://github.com/JPCalou/Crescent-Mall/blob/main/src/Components/Imagenes/crescent%20gif.gif)
 
 # Dependencias
-### npm install react-bootstrap bootstrap
+###  install react-bootstrap bootstrap
 Utilizado para desarrollar el la barra de navegacion
 
-### npm install react-icons --save
+###  install react-icons --save
 Utilizado para importar el icono del carrito a la barra de navegacion
 
-### npm install react-router-dom
+###  install react-router-dom
 Utilizado para crear las rutas de navegacion
 
-### npm install sweetalert2
+###  install sweetalert2
 Utilizado para realizar una alerta al agregar un producto al carrito
 
