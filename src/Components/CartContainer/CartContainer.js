@@ -92,7 +92,7 @@ export const CartContainer = () => {
   return (
     <div className="carrito">
       {listaCarrito.length === 0 ? (
-        <Link className="text-decoration-none" to={"/"}>
+        <Link className="text-decoration-none" to={"/productos"}>
           <h3>Agrega un producto</h3>
         </Link>
       ) : (
@@ -124,10 +124,13 @@ export const CartContainer = () => {
 
       {errorCarrito && <p className="errorCarrito">El carrito esta vacio</p>}
       <hr></hr>
-      <h2>Completa el formulario para finalizar la compra</h2>
-      <hr></hr>
+      {listaCarrito.length === 0 ? (<p></p>):(<div>
+        
 
-      <Formulario orden={(e) => sendOrder(e)} />
+        <Formulario orden={(e) => sendOrder(e)} />
+        </div>)}
+        
+      
       {submitError && (
         <p className="errorForm">Por favor complete el formulario</p>
       )}

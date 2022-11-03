@@ -1,64 +1,65 @@
 .Item {
-    border: beige;
-    justify-content: center;
-    margin: 0px;
-    border-radius: 20px;
-    display: flex;
-    flex-wrap: wrap;
+  border: beige;
+  justify-content: center;
+  margin: 0px;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-
-.imgLanding{
-    width: 15rem;
-    height: 20rem;
-    border-radius: 20px;
-    box-shadow: 0px 1px 10px rgb(0 0 0);
-    margin: 20px;
+.imgLanding {
+  width: 15rem;
+  height: 20rem;
+  border-radius: 20px;
+  box-shadow: 0px 1px 10px rgb(0 0 0);
+  margin: 20px;
 }
-.ItemCard{
-    width: 19rem;
-    text-decoration: none;
-    background-color: #8f975d;
-    border-radius: 20px;
-    color: #423712;
-    margin: 35px;
-     box-shadow: 0px 1px 10px rgba(0,0,0,2);
-     transition: all 400ms ease;
-    cursor: pointer;
+.ItemCard {
+  width: 19rem;
+  text-decoration: none;
+  background-color: #8f975d;
+  border-radius: 20px;
+  color: #423712;
+  margin: 8px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 2);
+  transition: all 400ms ease;
+  cursor: pointer;
+  animation:fadeInDown;
+animation-duration: 100ms ;
 }
 
 .ItemCard p {
-    margin: 0px;
-    margin-bottom: 5px;
+  margin: 0px;
+  margin-bottom: 5px;
 }
 
-.ItemCard:hover{
-    box-shadow: 5px 5px 20px rgba(0,0,0,4);
-    transform: translateY(-3%);
-    }
-
-.imgVelas{
-    height: 17rem;
-    width: 16rem;
-    padding: 10px;
-    border-radius: 29px;
-}
-.ItemList{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
+.ItemCard:hover {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 4);
+  transform: translateY(-3%);
 }
 
-.btnDetalle{
-    border-radius: 5px;
-    color: aliceblue;
-    background-color: #261901;
-    margin: 10px;
-    box-shadow: 0px 1px 10px rgba(0,0,0,2);
-    transition: all 400ms ease;
+.imgVelas {
+  height: 17rem;
+  width: 16rem;
+  padding: 10px;
+  border-radius: 29px;
 }
-.btnDetalle:hover{
-    box-shadow: 5px 5px 20px rgba(0,0,0,4);
-transform: translateY(-3%);
+.ItemList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.btnDetalle {
+  border-radius: 5px;
+  color: aliceblue;
+  background-color: #261901;
+  margin: 10px;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 2);
+  transition: all 400ms ease;
+}
+.btnDetalle:hover {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 4);
+  transform: translateY(-3%);
 }

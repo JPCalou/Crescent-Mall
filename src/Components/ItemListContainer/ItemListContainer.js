@@ -1,29 +1,25 @@
 import { ItemList } from "./ItemList";
 import "./ItemListContainer.css";
-// import { getProductos } from "../Productos/Velas";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import {collection,getDocs} from 'firebase/firestore'
+import { collection, getDocs } from "firebase/firestore";
 import dataBase from "../../utils/firebase";
-import Spinner from 'react-bootstrap/Spinner';
 
 
 
 export const ItemListContainer = () => {
   const [velasAromaticas, setVelasAromaticas] = useState([]);
-  const [loading, setLoading]= useState(false)
+  const [loading, setLoading] = useState(false);
   const params = useParams();
 
-
-
-  useEffect(()=>{
+  useEffect(() => {
     const getProductos = async () => {
-      setLoading(true)
+      setLoading(true);
       const query = collection(dataBase, "Productos");
       const response = await getDocs(query);
       const docs = response.docs;
       const data = docs.map((doc) => {
-        setLoading(false)
+        setLoading(false);
         return { ...doc.data(), id: doc.id };
       });
       if (params.IdCategory === undefined) {
@@ -34,15 +30,24 @@ export const ItemListContainer = () => {
         setVelasAromaticas(filtro);
       }
     };
-      getProductos()
-      
-  },[params])
+    getProductos();
+  }, [params]);
   return (
-    <>
-   { loading&& <Spinner animation="grow" />}
-    <div className="ItemListContainer">
-      <ItemList velasAromaticas={velasAromaticas} />
+    <div>
+      <div className="loading">
+        {loading && (
+          <lord-icon
+            src="https://cdn.lordicon.com/flcinbhn.json"
+            trigger="loop"
+            delay="500"
+            colors="primary:#8f975d,secondary:#cb5eee"
+          ></lord-icon>
+        )}
+      </div>
+
+      <div className="ItemListContainer">
+        <ItemList velasAromaticas={velasAromaticas} />
+      </div>
     </div>
-    </>
   );
 };

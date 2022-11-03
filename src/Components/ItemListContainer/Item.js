@@ -2,12 +2,7 @@ import React from "react";
 import "./Item.css";
 import { Link } from "react-router-dom";
 
-
-
 export const Item = ({ productos }) => {
-  
-
-
   return (
     <div className="ItemCard">
       <img className="imgVelas" src={productos.imagen} alt="velas pequeñas" />

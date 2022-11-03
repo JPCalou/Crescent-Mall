@@ -1,63 +1,57 @@
-.menuCSS3{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border-style: groove;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    background-color: #8f975d;
+.menuCSS3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+ 
+  background-color: #8f975d;
 }
 
-.rutas{
-    display: flex;
-    flex-direction: row;
+.menuCSS3 h1{
+  margin-right: 19rem;
 }
 
-
-.rutas ul{
-    display: flex;
-    align-items: center;
+.rutas {
+  display: flex;
+  flex-direction: row;
 }
 
-.rutas ul li{
-    margin: 10px;
-    font-weight: 500;
+.rutas ul {
+  display: flex;
+  align-items: center;
 }
 
+.rutas ul li {
+  margin: 10px;
+  font-weight: 500;
+}
 
 .menuCSS3 ul {
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    border-radius: 10px;
-
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border-radius: 10px;
 }
 .menuCSS3 div a {
-    /* display: block; */
-    display: flex;
-    padding: 5px;
-    transition: all 600ms ease;
-    text-decoration: none;
-    color: #191C26;
+  /* display: block; */
+  display: flex;
+  padding: 5px;
+  transition: all 600ms ease;
+  text-decoration: none;
+  color: #191c26;
 }
 .menuCSS3 div a:hover {
-    background-color: #fafab6;
-    border-radius: 30px;
+  background-color: #fafab6;
+  border-radius: 30px;
 }
 .menuCSS3 div ul li > ul {
-    display: none;
-    position: absolute;
-    transition: all 600ms ease;
-   
+  display: none;
+  position: absolute;
+  transition: all 600ms ease;
 }
-.menuCSS3 div ul li a:hover + ul, .menuCSS3 ul li ul:hover {
-    display: block;
-    background-color: #fafab6;
-    
-    
+.menuCSS3 div ul li a:hover + ul,
+.menuCSS3 ul li ul:hover {
+  display: block;
+  background-color: #fafab6;
 }
-
-

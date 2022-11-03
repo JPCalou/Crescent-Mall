@@ -1,24 +1,20 @@
 import { ItemCount } from "../ItemCount/ItemCount";
 import "./ItemDetail.css";
 import "../ItemCount/ItemCount.css";
-import {  useContext, useState } from "react";
-import {Link} from 'react-router-dom'
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { CartContext } from "../Contextos/CartContext";
 
-export const ItemDetail = ({ detalle } ) => {
-  const {addProducto}= useContext(CartContext)
-  
-  const  [valorContador, SetValorContador]= useState(0)
+export const ItemDetail = ({ detalle }) => {
+  const { addProducto } = useContext(CartContext);
 
-  const onAdd= (contador)=>{
-SetValorContador(contador)
+  const [valorContador, SetValorContador] = useState(0);
 
-addProducto(detalle,contador)
+  const onAdd = (contador) => {
+    SetValorContador(contador);
 
-  }
-
-  
-  
+    addProducto(detalle, contador);
+  };
 
   return (
     <div className="detailCard">
@@ -30,12 +26,14 @@ addProducto(detalle,contador)
         <p>Tamaño: {detalle.tamaño}</p>
         <p>Precio: ${detalle.precio}</p>
         <p>{detalle.descripcion}</p>
-       
-     {
-      valorContador>0?<Link to={'/cart'}><button>Finalizar Compra</button></Link>:<ItemCount initial={1} stock={10} onAdd={onAdd} />
-     }
-        
 
+        {valorContador > 0 ? (
+          <Link to={"/cart"}>
+            <button>Finalizar Compra</button>
+          </Link>
+        ) : (
+          <ItemCount initial={1} stock={10} onAdd={onAdd} />
+        )}
       </div>
     </div>
   );

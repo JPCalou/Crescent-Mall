@@ -1,0 +1,15 @@
+.carrousel{
+    margin: 20px;
+    padding: 5px;
+    
+}
+.carrousel img{
+    width: 5rem;
+    height: 45em;
+    border-radius: 10px;
+    padding: 60px;
+}
+
+h3{
+    color: #000;
+}

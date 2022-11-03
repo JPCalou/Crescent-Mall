@@ -1,0 +1,28 @@
+.form-contacto{
+    display: flex;
+    flex-direction: column;
+    margin: 10rem;
+    align-items: center;
+    position: relative;
+}
+
+h1{
+    margin: 2rem;
+}
+
+textarea{
+    margin: 5px;
+    border-radius: 5px;
+    height: 7rem;
+    box-shadow: 0px 0px 2px 1px;
+}
+
+.div-contacto{
+    background-image:url(../Imagenes/naturaleza.jpg);
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}

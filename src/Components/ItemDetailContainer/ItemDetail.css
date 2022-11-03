@@ -17,16 +17,17 @@
     padding: 2rem;
     border-radius: 15px;
 }
+
+.detailCard .imgDetail{
+
+    width: 200px;
+    border-radius: 15px;
+}
 .divImg{
     height: 15rem;
     display: flex;
 }
-.imgDetail{
 
-    width: 200px;
-    border-radius: 15px;
-
-}
 .divDescripcion{
     display: flex;
     flex-direction: column;

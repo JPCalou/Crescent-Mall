@@ -8,3 +8,11 @@ h2{
     display: flex;
     flex-wrap: wrap;
 }
+lord-icon{
+    height: 400px;
+    width: 400px;
+}
+.loading{
+    margin-top: 10px;
+   
+}
