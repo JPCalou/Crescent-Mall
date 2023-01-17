@@ -26,3 +26,17 @@ textarea{
     background-attachment: fixed;
     background-size: cover;
 }
+
+@media (max-width: 375px){
+    form{
+        width: 18rem;
+        padding: 2px;
+    }
+}
+
+@media (min-width: 768px) {
+    form{
+        width: 30rem;
+        padding: 5px;
+    }
+}

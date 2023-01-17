@@ -9,8 +9,6 @@ export const Contacto = () => {
 
          <h1>Contacto</h1>
     <div className='form-contacto'>
-        
-       
         <form >
             <input type={"text"} placeholder={"Nombre"}></input>
             <input type={"email"} placeholder={"Email"}></input>

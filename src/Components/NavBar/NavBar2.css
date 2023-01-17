@@ -36,7 +36,8 @@
 .menuCSS3 div a {
   /* display: block; */
   display: flex;
-  padding: 5px;
+  padding: 1px;
+  font-size: larger;
   transition: all 600ms ease;
   text-decoration: none;
   color: #191c26;
@@ -54,4 +55,52 @@
 .menuCSS3 ul li ul:hover {
   display: block;
   background-color: #fafab6;
+}
+
+.logo-carrito{
+  margin: 5px;
+}
+
+@media (max-width: 375px){
+.menuCSS3{
+    flex-direction: column;
+    background-color: #8f975d;
+    align-items: center;
+}
+
+  .menuCSS3 h1 { margin-right: 30px;}
+
+  .menuCSS3 div a {
+    padding: 7px;
+    margin-bottom: 1rem;
+  }
+
+  .rutas ul li{
+    font-size: smaller;
+    margin: 1px;
+  }  
+}
+
+@media (min-width: 768px){
+  .menuCSS3{
+    flex-direction: column;
+    align-items: center;
+}
+
+  .menuCSS3 h1 { margin-right: 30px;}
+
+  .menuCSS3 div a {
+    padding: 7px;
+    margin-bottom: 1rem;
+  }
+
+  .rutas ul li{
+    font-size: large;
+    margin: 1px;
+  }  
+    
+}
+
+@media (min-width: 1024px){
+  
 }

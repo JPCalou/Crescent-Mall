@@ -13,3 +13,15 @@
 h3{
     color: #000;
 }
+
+@media (max-width: 375px){
+    .carrousel img{
+        
+        height: 20rem;
+        border-radius: 10px;
+        padding: 10px;
+    }
+}
+
+
+
