@@ -61,7 +61,7 @@
   margin: 5px;
 }
 
-@media (max-width: 375px){
+@media (max-width: 425px){
 .menuCSS3{
     flex-direction: column;
     background-color: #8f975d;

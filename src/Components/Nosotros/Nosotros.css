@@ -14,7 +14,7 @@ h3{
     color: #000;
 }
 
-@media (max-width: 375px){
+@media (max-width: 425px){
     .carrousel img{
         
         height: 20rem;

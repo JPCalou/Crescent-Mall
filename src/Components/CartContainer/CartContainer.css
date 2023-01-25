@@ -66,3 +66,18 @@ form button {
 .errorForm{
     color: red;
 }
+
+@media (max-width: 425px){
+
+    .carritoCard{
+        width: 95%;
+    }
+    .img-producto{
+        width: 70px;
+        height: auto;
+    }
+}
+
+@media (min-width: 768px) {
+
+}

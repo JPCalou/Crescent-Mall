@@ -35,3 +35,24 @@
     text-align: justify;
     width: 16rem;
 }
+@media (max-width: 425px){
+    .detailCard{
+        flex-direction: column;
+        width: auto;
+        align-items: center;
+        padding: 1rem;
+    }
+    .divDescripcion{
+        align-items: center;
+        padding: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+.divDescripcion{
+    padding: 1rem;
+}
+.divImg{
+    align-self: center;
+}
+}

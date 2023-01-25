@@ -27,7 +27,7 @@ textarea{
     background-size: cover;
 }
 
-@media (max-width: 375px){
+@media (max-width: 425px){
     form{
         width: 18rem;
         padding: 2px;
